@@ -2,10 +2,27 @@ name: basic-mail
 services:
   app:
     build: .
-    ports:
-      - "${PORT}:${PORT}"
     env_file:
       - .env
     expose:
       - ${PORT}
     restart: unless-stopped
+    networks:
+      - default
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    expose:
+      - ${NGINX_PORT}
+    restart: unless-stopped
+    ports:
+      - "${NGINX_PORT}:${NGINX_PORT}"
+    depends_on:
+      - app
+    networks:
+      - default
+networks:
+  default:
