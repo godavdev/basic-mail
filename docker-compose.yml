@@ -1,0 +1,11 @@
+name: basic-mail
+services:
+  app:
+    build: .
+    ports:
+      - "${PORT}:${PORT}"
+    env_file:
+      - .env
+    expose:
+      - ${PORT}
+    restart: unless-stopped
