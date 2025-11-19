@@ -29,8 +29,6 @@ SMTP_PORT=tu_puerto_smtp
 SMTP_USER=tu_usuario_smtp
 SMTP_PASS=tu_contraseña_smtp
 PORT=3000
-NGINX_PORT=80
-NGINX_HOST="_"
 ```
 
 ## Ejecutando el Proyecto
